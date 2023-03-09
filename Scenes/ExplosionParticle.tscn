@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+render_priority = -1
+flags_transparent = true
+albedo_color = Color( 0.262745, 0.270588, 0.788235, 1 )
+
+[sub_resource type="CubeMesh" id=1]
+resource_local_to_scene = true
+material = SubResource( 3 )
+
+[node name="ExplosionParticle" type="Spatial"]
+
+[node name="Mesh" type="MeshInstance" parent="."]
+layers = 2
+mesh = SubResource( 1 )
+software_skinning_transform_normals = false

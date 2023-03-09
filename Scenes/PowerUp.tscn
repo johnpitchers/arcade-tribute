@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/models/powerup_tripleshot.gltf" type="PackedScene" id=1]
+[ext_resource path="res://Assets/models/powerup_doubleshot.gltf" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PowerUp.gd" type="Script" id=3]
+[ext_resource path="res://Assets/models/powerup_dualtrigger.gltf" type="PackedScene" id=4]
+[ext_resource path="res://Assets/models/powerup_extralife.gltf" type="PackedScene" id=5]
+[ext_resource path="res://Assets/models/powerup_smartbomb.gltf" type="PackedScene" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.48, 0.48, 0.48 )
+
+[node name="PowerUp" type="Area" groups=["PowerUps"]]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Meshes" type="Spatial" parent="."]
+transform = Transform( 0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, -0.497057, 0 )
+
+[node name="powerup_doubleshot" parent="Meshes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425857, -1.09425, 0.523948 )
+visible = false
+
+[node name="powerup_tripleshot" parent="Meshes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.464008, -0.968953, 0.451686 )
+visible = false
+
+[node name="powerup_firerateincrease" parent="Meshes" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522419, -0.73018, 0.349183 )
+visible = false
+
+[node name="powerup_extralife" parent="Meshes" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.403243, -0.708369, 0.547662 )
+visible = false
+
+[node name="powerup_smartbomb" parent="Meshes" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.593358, -1.08394, 0.547099 )
+visible = false
+
+[connection signal="area_shape_entered" from="." to="." method="_on_PowerUp_area_shape_entered"]

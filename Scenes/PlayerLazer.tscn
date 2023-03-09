@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/PlayerLazer.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.0437665, 1.21676, 0.0360217 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.101961, 0.2, 0.843137, 1 )
+metallic_specular = 0.31
+roughness = 0.49
+
+[sub_resource type="CubeMesh" id=8]
+material = SubResource( 7 )
+size = Vector3( 0.02, 0.02, 0.6 )
+
+[node name="LazerA" type="Area" groups=["Lazers", "PlayerLazers"]]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42034, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 4.02417, 0, 0, 0, -1.75902e-07, -4.02417, 0, 4.02417, -1.75902e-07, 0, 1.43044, 0 )
+cast_shadow = 0
+mesh = SubResource( 8 )
+skeleton = NodePath("")
+software_skinning_transform_normals = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_shape_entered" from="." to="." method="_on_LazerA_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve3D" id=17]
+_data = {
+"points": PoolVector3Array( -4.81994, 12.4911, 0, 4.81994, -12.4911, 0, 10.0472, 44.651, 0, 8.64151, 9.23255, 0.0678863, -8.64151, -9.23255, -0.0678863, -7.5354, 12.4728, 0, -12.2112, -11.2078, -0.0396843, 12.2112, 11.2078, 0.0396843, 23.896, 19.4651, 0, 2.32685, 9.70776, 0.0678856, -2.32685, -9.70776, -0.0678856, 14.1204, 39.0164, 0 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[node name="Path3" type="Path"]
+curve = SubResource( 17 )
+
+[node name="PathFollow" type="PathFollow" parent="."]
+transform = Transform( 7.11605e-05, 0.935161, 0.35422, 0, 0.354224, -0.935148, -1, 6.65465e-05, 2.52064e-05, 10.0472, 44.651, 0 )
+rotation_mode = 4
+loop = false
+
+[node name="Spatial" type="Spatial" parent="PathFollow"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0 )

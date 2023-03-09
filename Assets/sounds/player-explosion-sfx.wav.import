@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player-explosion-sfx.wav-fedb5b31b199d3c4478209685e6818a6.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/player-explosion-sfx.wav"
+dest_files=[ "res://.import/player-explosion-sfx.wav-fedb5b31b199d3c4478209685e6818a6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tractor-beam-sfx.wav-644d63e04fae6c615af85fa4d6eb5f7a.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/tractor-beam-sfx.wav"
+dest_files=[ "res://.import/tractor-beam-sfx.wav-644d63e04fae6c615af85fa4d6eb5f7a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=3
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

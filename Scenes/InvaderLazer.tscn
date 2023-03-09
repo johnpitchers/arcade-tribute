@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/InvaderLazer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/sounds/alien-lazer-sfx.wav" type="AudioStream" id=3]
+
+[sub_resource type="SpatialMaterial" id=7]
+resource_local_to_scene = true
+flags_transparent = true
+albedo_color = Color( 1, 0, 1, 1 )
+
+[sub_resource type="CubeMesh" id=8]
+resource_local_to_scene = true
+material = SubResource( 7 )
+size = Vector3( 0.035, 0.02, 0.2 )
+
+[sub_resource type="CubeMesh" id=10]
+size = Vector3( 0.3, 0.2, 0.3 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.0315215, 0.416795, 0.466035 )
+
+[node name="InvaderLazer" type="Area" groups=["InvaderLazer", "Lazers"]]
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.57984, 0, 0, 0, -2.38292e-07, -2.72575, 0, 3.15968, -6.90569e-08, 0, 1.16231, 0 )
+cast_shadow = 0
+mesh = SubResource( 8 )
+software_skinning_transform_normals = false
+
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 0.333333, 0, 0, 0, -7.28522e-09, 0.166667, 0, -0.333333, -1.45704e-08, 0, 2.31287e-09, 0.105825 )
+mesh = SubResource( 10 )
+skeleton = NodePath("../..")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17749, 0 )
+shape = SubResource( 9 )
+
+[connection signal="area_shape_entered" from="." to="." method="_on_InvaderLazer_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

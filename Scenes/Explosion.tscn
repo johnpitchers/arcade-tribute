@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Explosion.gd" type="Script" id=1]
+[ext_resource path="res://Assets/sounds/mothership-explosion-sfx.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/sounds/player-explosion-sfx.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/sounds/alien-explosion-sfx.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/sounds/small-explosion-sfx.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/sounds/power-up-sfx.wav" type="AudioStream" id=6]
+
+[node name="Explosion" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="DurationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MotherShipExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="PlayerExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 4.928
+pitch_scale = 0.87
+
+[node name="InvaderExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="SmallExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.299
+pitch_scale = 0.92
+
+[node name="InvaderExplosionSmallAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 1.61
+
+[node name="PowerUpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="timeout" from="DurationTimer" to="." method="_on_DurationTimer_timeout"]

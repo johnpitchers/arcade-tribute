@@ -1,0 +1,118 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/models/invader4.gltf" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Invader.gd" type="Script" id=2]
+[ext_resource path="res://Assets/sprites/slash_02.png" type="Texture" id=3]
+[ext_resource path="res://Assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/models/invader2.gltf" type="PackedScene" id=6]
+[ext_resource path="res://Assets/models/invader1.gltf" type="PackedScene" id=7]
+[ext_resource path="res://Assets/models/invader3.gltf" type="PackedScene" id=8]
+[ext_resource path="res://Assets/models/space_invader3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/models/space_invader2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/models/space_invader1.tscn" type="PackedScene" id=13]
+
+[sub_resource type="BoxShape" id=1]
+resource_local_to_scene = true
+extents = Vector3( 1.85474, 1.5639, 0.599585 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.338129, 1 )
+colors = PoolColorArray( 1, 1, 0.301961, 1, 0.17218, 0.193225, 0.710938, 1, 0.0313726, 0, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.972528, 0.0087719 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+width = 512
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+direction = Vector3( 0, 0, 1 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 4.0
+angular_velocity_random = 1.0
+scale = 2.0
+scale_random = 0.5
+scale_curve = SubResource( 5 )
+color = Color( 0.207843, 0.403922, 0.878431, 1 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_cull_mode = 2
+albedo_color = Color( 1, 1, 0.396078, 1 )
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
+size = Vector2( 0.7, 0.7 )
+
+[sub_resource type="DynamicFont" id=9]
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[node name="Invader3" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Area" type="Area" parent="." groups=["Invaders"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 1.67037e-22, 0, 1, 0, 1.67038e-22, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Mesh" type="Spatial" parent="Area"]
+transform = Transform( 1, 0, 1.67037e-22, 0, 1, 0, 1.67038e-22, 0, 1, 0, 0, 0 )
+
+[node name="Alien1" parent="Area/Mesh" instance=ExtResource( 7 )]
+transform = Transform( 0.362142, 0, -1.38164e-23, 0, 0.242126, 0, 2.30275e-23, 0, 0.3, -0.209145, -1.09289, 0.105043 )
+visible = false
+
+[node name="Alien2" parent="Area/Mesh" instance=ExtResource( 6 )]
+transform = Transform( 0.364994, 0, -4.40033e-24, 0, 0.240335, 0, 5.20547e-24, 0, 0.3, -0.27732, -0.909784, 0.0945734 )
+visible = false
+
+[node name="Alien3" parent="Area/Mesh" instance=ExtResource( 8 )]
+transform = Transform( 0.308417, 0, -1.49858e-23, 0, 0.200142, 0, 2.19793e-23, 0, 0.3, -0.201334, -1.46238, 0.103266 )
+visible = false
+
+[node name="Alien4" parent="Area/Mesh" instance=ExtResource( 1 )]
+transform = Transform( 0.348443, 0, -4.52111e-24, 0, 0.241247, 0, 4.52113e-24, 0, 0.375509, -0.219332, -1.74432, 0.131189 )
+visible = false
+
+[node name="ExhaustParticles" type="Particles" parent="Area/Mesh"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.325914, 0 )
+visible = false
+amount = 30
+lifetime = 0.5
+visibility_aabb = AABB( -30, -30, -30, 60, 60, 60 )
+local_coords = false
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
+
+[node name="SpaceInvader1" parent="Area/Mesh" instance=ExtResource( 13 )]
+visible = false
+
+[node name="SpaceInvader2" parent="Area/Mesh" instance=ExtResource( 12 )]
+visible = false
+
+[node name="SpaceInvader3" parent="Area/Mesh" instance=ExtResource( 11 )]
+visible = false
+
+[node name="DevLivesLabel" type="Label3D" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 1, -0.906272, 0.751518, 0 )
+visible = false
+pixel_size = 0.1
+outline_modulate = Color( 1, 0, 0, 1 )
+text = "2"
+font = SubResource( 9 )
+
+[connection signal="tree_exiting" from="." to="." method="_on_Invader3_tree_exiting"]

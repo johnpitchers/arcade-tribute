@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Arcade Tribute"
+config/description="A tribute to the classics, Galaxian and Galaga, from the golden era of arcade games.	"
+run/main_scene="res://Scenes/GameWorld.tscn"
+run/delta_sync_after_draw=true
+config/icon="res://icon.png"
+
+[audio]
+
+output_latency.web=90
+
+[autoload]
+
+Config="*res://_Config.gd"
+State="*res://_State.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/size/width=1600
+window/size/height=1200
+window/vsync/vsync_via_compositor=true
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gdformat/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+ui_shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+3d/active_soft_world=false
+
+[rendering]
+
+quality/directional_shadow/size=1024
+quality/shadows/filter_mode=0
+quality/reflections/high_quality_ggx=false
+quality/filters/anisotropic_filter_level=2
+gles3/shaders/shader_compilation_mode=2
+quality/filters/msaa=2
+quality/depth/hdr=false
+environment/default_environment="res://default_env.tres"
