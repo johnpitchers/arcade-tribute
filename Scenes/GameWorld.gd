@@ -62,14 +62,6 @@ func setGameMode() -> void:
 			$Starfield.translation = Vector3.ZERO
 			$Starfield.rotation_degrees = Vector3.ZERO
 		2:  # Action cam
-			#$CRTViewportContainer.visible = false
-			#$MainViewportContainer/Viewport.keep_3d_linear = false
-			#$MainViewportContainer/Viewport/Camera/ScanLines.visible = false
-			#$WorldEnvironment.environment.glow_enabled = false
-			#$WorldEnvironment.environment.glow_strength = 0.2
-			#$WorldEnvironment.environment.glow_bloom = 1
-			#$WorldEnvironment.environment.background_color = Color(0, 0, 0.08)
-			
 			$CRTViewportContainer.visible = false
 			$MainViewportContainer/Viewport.keep_3d_linear = false
 			$MainViewportContainer/Viewport/Camera/ScanLines.visible = false

@@ -1,7 +1,7 @@
 extends Area
 
-var velocity = Config.player.lazerVelocity
-var life = 0.6
+var velocity:float = Config.player.lazerVelocity
+var life: float = velocity /  100.0
 
 onready var explosion = preload("res://Scenes/Explosion.tscn")
 onready var fly_out_label = preload("res://Scenes/FlyoutLabel.tscn")
@@ -52,7 +52,7 @@ func _on_LazerA_area_shape_entered(
 			self.queue_free()
 			collided_with.hitByPlayer(self.global_translation)
 		
-		# Handle the lazer handle the collision
+		# Let the lazer handle the collision
 		if collider_groups.has("Invaders"):
 			# collided_with is the Area. We need the parent Invader object
 			var collided_with_area = collided_with
@@ -64,7 +64,7 @@ func _on_LazerA_area_shape_entered(
 			# I've add a portion of the players lazerLevel to the alien's lives to offset the
 			# power that comes with higher lazer levels. Especially at level 3, the
 			# game becomes too easy otherwise. In bonus levels lives are ignored.
-			if collided_with.lives + (State.player.lazerLevel/2) < 1 || State.is_bonus_level:
+			if collided_with.lives < 1 || State.is_bonus_level:
 				if collided_with.has_captured_player:
 					reparentCapturedToPlayer(collided_with)
 				get_node("/root/GameWorld").add_child(explosion_instance)
