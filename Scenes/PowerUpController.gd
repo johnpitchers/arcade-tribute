@@ -68,6 +68,9 @@ func randomType():
 		for pup in powerUpsInScene:
 			if pup.type == type:
 				type = -1
+		# Only spawn extra lives if the player is low on lives.
+		if type == TYPE.EXTRA_LIFE && State.player.lives > 1:
+			type = -1
 	return type
 
 

@@ -14,7 +14,7 @@ var player: Dictionary = {
 	"fireRateIncreased": false
 }
 var powerUpChance: float = 0.04
-var maxPowerUpsPerLevel: int = 2
+var maxPowerUpsPerLevel: int = 1
 var randNum: int
 var userSaveFile: String = "user://arcadetribute_saveData.res"  # Home/.local/share/godot/app_userdata/Arcade Tribute
 var startingLevel: int = 1
