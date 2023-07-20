@@ -1,7 +1,7 @@
 # Arcade Tribute
 **Built with Godot 3.5.1.**
 
-A tribute to the arcade classics Galaga and Space Invaders, in 3D. It exports perfectly to HTML, so you can play it online before downloading it. Requires a keyboard so probably no good on mobiles. Sorry!
+A tribute to the arcade classics Galaga and Space Invaders, in 3D.
 
 ![Arcade Tribute built with Godot](https://arcadetribute.viperfish.com.au/screenshots/1.webp)
 Classic Galaga gameplay with a few extras.
