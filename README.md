@@ -16,6 +16,8 @@ The repository includes all code and assets. Have fun and use them as you like.
 
 Sound effects are published under Creative Commons by Juhani Junkala, which can be found here: https://opengameart.org/content/512-sound-effects-8-bit-style.
 
+### Download the executable for Windows, Mac or Linux from the Export folders.
+
 ## Some more screenshots
 
 ![Space Invaders every few levels](https://arcadetribute.viperfish.com.au/screenshots/2.webp)
